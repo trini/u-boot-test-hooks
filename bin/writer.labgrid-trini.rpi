@@ -40,7 +40,8 @@ case "${board_ident}" in
     ;;
 esac
 
-labgrid-client write-files -T ${configtxt} config.txt
-labgrid-client write-files -T ${build}/u-boot.bin u-boot.bin
+chmod 0644 ${configtxt}
+labgrid-client write-files --partition 1 -T ${configtxt} config.txt
+labgrid-client write-files --partition 1 -T ${build}/u-boot.bin u-boot.bin
 rm ${configtxt}
 echo "Done writing build"
