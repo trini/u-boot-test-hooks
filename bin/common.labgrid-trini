@@ -19,11 +19,6 @@
 # DEALINGS IN THE SOFTWARE.
 
 # Ensure we have all environment variables set
-if [ -z "${LG_COORDINATOR}" ]; then
-	echo "LG_COORDINATOR is unset";
-	exit 1;
-fi
-
 if [ -z "${LG_PLACE}" ]; then
 	echo "LG_PLACE is unset";
 	exit 1;

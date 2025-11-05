@@ -253,7 +253,8 @@ That should be all that is needed.
 An alternate implementation requires setting the following environment
 variables must be set as per your lab:
 
-- `LG_COORDINATOR` must point at the labgrid coordinator service.
+- `LG_COORDINATOR` must point at the labgrid coordinator service if the default
+  is not correct.
 - `LG_PLACE` must point at the device under test.
 - `LG_ENV` must point at the labgrid yaml file that describes your lab.
 
