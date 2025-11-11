@@ -20,28 +20,11 @@
 
 # Ensure we have all environment variables set
 . common.labgrid-trini
-set -e
 
 build=${U_BOOT_BUILD_DIR}
-configtxt=`mktemp`
 
-echo "enable_uart=1" | tee ${configtxt}
-echo "kernel=u-boot.bin" | tee -a ${configtxt}
+echo "Writing build at ${build}"
 
-case "${board_type}" in
-rpi_3|rpi_3b|rpi_3_b_plus|rpi_4|rpi_arm64)
-    echo "arm_64bit=1" | tee -a ${configtxt}
-    ;;
-esac
-
-case "${board_ident}" in
-3-32-pl011)
-    echo "dtoverlay=pi3-miniuart-bt" | sudo tee -a ${configtxt}
-    ;;
-esac
-
-chmod 0644 ${configtxt}
-labgrid-client write-files --partition 1 -T ${configtxt} config.txt
-labgrid-client write-files --partition 1 -T ${build}/u-boot.bin u-boot.bin
-rm ${configtxt}
+# This use bs=512
+labgrid-client write-image --mode dd --seek 2 ${build}/u-boot-with-spl.imx
 echo "Done writing build"
