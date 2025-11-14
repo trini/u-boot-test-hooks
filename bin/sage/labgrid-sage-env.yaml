@@ -1,0 +1,138 @@
+# Sage environment
+
+options:
+  coordinator_address: 172.17.0.1:20408
+
+targets:
+  rpi3-1:
+    resources:
+      RemotePlace:
+        name: rpi3-1
+    drivers:
+      power:
+        cls: NetworkPowerDriver
+      mux:
+        cls: USBSDWireDriver
+      storage:
+        cls: USBStorageDriver
+      serial:
+        cls: SerialDriver
+      shell:
+        cls: ShellDriver
+        prompt: 'root@.*:~# '
+        login_prompt: 'login: '
+        username: 'root'
+      uboot:
+        cls: UBootDriver
+        prompt: 'U-Boot> '
+        autoboot: 'Hit any key to stop autoboot'
+      strategy:
+        cls: UBootStrategy
+  rpi4-1:
+    resources:
+      RemotePlace:
+        name: rpi4-1
+    drivers:
+      power:
+        cls: NetworkPowerDriver
+      mux:
+        cls: USBSDWireDriver
+      storage:
+        cls: USBStorageDriver
+      serial:
+        cls: SerialDriver
+      shell:
+        cls: ShellDriver
+        prompt: 'root@.*:~# '
+        login_prompt: 'login: '
+        username: 'root'
+      uboot:
+        cls: UBootDriver
+        prompt: 'U-Boot> '
+        autoboot: 'Hit any key to stop autoboot'
+      strategy:
+        cls: UBootStrategy
+  hb-1:
+    resources:
+      RemotePlace:
+        name: hb-1
+    drivers:
+      power:
+        cls: NetworkPowerDriver
+      mux:
+        cls: USBSDWireDriver
+      storage:
+        cls: USBStorageDriver
+      serial:
+        cls: SerialDriver
+      shell:
+        cls: ShellDriver
+        prompt: 'root@.*:~# '
+        login_prompt: 'login: '
+        username: 'root'
+      uboot:
+        cls: UBootDriver
+        prompt: 'U-Boot> '
+        autoboot: 'Hit any key to stop autoboot'
+      strategy:
+        cls: UBootStrategy
+  pine64-1:
+    resources:
+      RemotePlace:
+        name: pine64-1
+    drivers:
+      power:
+        cls: NetworkPowerDriver
+      mux:
+        cls: USBSDWireDriver
+      storage:
+        cls: USBStorageDriver
+      serial:
+        cls: SerialDriver
+      shell:
+        cls: ShellDriver
+        prompt: 'root@.*:~# '
+        login_prompt: 'login: '
+        username: 'root'
+      uboot:
+        cls: UBootDriver
+        prompt: 'U-Boot> '
+        autoboot: 'Hit any key to stop autoboot'
+      strategy:
+        cls: UBootStrategy
+  sage-exporter-rpi3-1:
+    resources:
+      RemotePlace:
+        name: sage-exporter-rpi3-1
+    drivers:
+      power:
+        cls: NetworkPowerDriver
+      ssh:
+        cls: SSHDriver
+  sage-exporter-rpi4-1:
+    resources:
+      RemotePlace:
+        name: sage-exporter-rpi4-1
+    drivers:
+      power:
+        cls: NetworkPowerDriver
+      ssh:
+        cls: SSHDriver
+  sage-exporter-hb-1:
+    resources:
+      RemotePlace:
+        name: sage-exporter-hb-1
+    drivers:
+      power:
+        cls: NetworkPowerDriver
+      ssh:
+        cls: SSHDriver
+  sage-exporter-pine64-1:
+    resources:
+      RemotePlace:
+        name: sage-exporter-pine64-1
+    drivers:
+      power:
+        cls: NetworkPowerDriver
+      ssh:
+        cls: SSHDriver
